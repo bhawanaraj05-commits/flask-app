@@ -17,7 +17,6 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'venv/bin/pip install --upgrade pip'
                 sh 'venv/bin/pip install -r requirements.txt'
             }
         }
