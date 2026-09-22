@@ -21,10 +21,10 @@ pipeline {
             }
         }
 
-        stage('Deploy Flask') {
-            steps {
-                sh 'venv/bin/python app.py'
-            }
-        }
+       stage('Deploy Flask') {
+    steps {
+        sh 'venv/bin/python app.py'
+    }
+}
     }
 }
