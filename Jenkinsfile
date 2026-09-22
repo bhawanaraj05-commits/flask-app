@@ -9,15 +9,22 @@ pipeline {
             }
         }
 
+        stage('Create Virtual Environment') {
+            steps {
+                sh 'python3 -m venv venv'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh 'venv/bin/pip install --upgrade pip'
+                sh 'venv/bin/pip install -r requirements.txt'
             }
         }
 
         stage('Deploy Flask') {
             steps {
-                sh 'python3 app.py'
+                sh 'venv/bin/python app.py'
             }
         }
     }
